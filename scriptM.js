@@ -45,6 +45,7 @@ function closeMenu() {
         "aria-expanded",
         "false"
     );
+
 }
 
 
@@ -124,7 +125,7 @@ if (menuButton && navMenu) {
 
 
 /* =========================================================
-   BUILD WHATSAPP MESSAGE
+   BUILD PENDAFTARAN
 ========================================================= */
 
 function buildWhatsAppMessage() {
@@ -198,7 +199,7 @@ if (joinForm) {
 
     joinForm.addEventListener(
         "submit",
-        function (event) {
+        async function (event) {
 
             event.preventDefault();
 
@@ -326,73 +327,155 @@ if (joinForm) {
                 "loading"
             );
 
-
             submitButton
                 .querySelector("span")
                 .textContent =
-                "MEMBUKA WHATSAPP...";
+                "MENYALIN DATA...";
 
 
             /* =============================================
-               MESSAGE
+               BUILD FORMAT PENDAFTARAN
             ============================================== */
 
             const message =
                 buildWhatsAppMessage();
 
 
-            /*
-             * Nomor Putra
-             *
-             * 089653502592
-             *
-             * Format internasional:
-             * 6289653502592
-             */
+            /* =============================================
+               COPY CLIPBOARD
+            ============================================== */
 
-            const targetNumber =
-                "6289653502592";
+            try {
+
+                /*
+                 * Cara utama
+                 */
+
+                if (
+                    navigator.clipboard &&
+                    window.isSecureContext
+                ) {
+
+                    await navigator.clipboard.writeText(
+                        message
+                    );
+
+                }
+
+                /*
+                 * Fallback untuk file lokal
+                 */
+
+                else {
+
+                    const textarea =
+                        document.createElement(
+                            "textarea"
+                        );
+
+                    textarea.value =
+                        message;
+
+                    textarea.style.position =
+                        "fixed";
+
+                    textarea.style.left =
+                        "-9999px";
+
+                    textarea.style.top =
+                        "0";
+
+                    textarea.style.width =
+                        "1px";
+
+                    textarea.style.height =
+                        "1px";
+
+                    textarea.style.opacity =
+                        "0";
+
+                    textarea.setAttribute(
+                        "readonly",
+                        ""
+                    );
+
+                    document.body.appendChild(
+                        textarea
+                    );
+
+                    textarea.focus();
+
+                    textarea.select();
+
+                    textarea.setSelectionRange(
+                        0,
+                        textarea.value.length
+                    );
 
 
-            const whatsappURL =
-                "https://wa.me/"
-                +
-                targetNumber
-                +
-                "?text="
-                +
-                encodeURIComponent(
-                    message
+                    const copied =
+                        document.execCommand(
+                            "copy"
+                        );
+
+
+                    document.body.removeChild(
+                        textarea
+                    );
+
+
+                    if (!copied) {
+
+                        throw new Error(
+                            "Clipboard gagal"
+                        );
+
+                    }
+
+                }
+
+
+                /* =============================================
+                   BUKA GRUP WHATSAPP
+                ============================================== */
+
+                submitButton
+                    .querySelector("span")
+                    .textContent =
+                    "MEMBUKA GRUP...";
+
+
+                window.location.href =
+                    "https://chat.whatsapp.com/DfkzP844gwsHEFX3Sl2I8h";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Gagal menyalin data:",
+                    error
                 );
 
 
-            /* =============================================
-               OPEN WHATSAPP
-            ============================================== */
-
-            window.location.href =
-                whatsappURL;
+                submitButton.classList.remove(
+                    "loading"
+                );
 
 
-            /* =============================================
-               RESET BUTTON
-            ============================================== */
+                submitButton
+                    .querySelector("span")
+                    .textContent =
+                    "KIRIM PENDAFTARAN";
 
-            setTimeout(
-                function () {
 
-                    submitButton.classList.remove(
-                        "loading"
-                    );
+                alert(
+                    "Data gagal disalin ke clipboard. Coba jalankan website melalui HTTPS atau server lokal."
+                );
 
-                    submitButton
-                        .querySelector("span")
-                        .textContent =
-                        "KIRIM PENDAFTARAN";
 
-                },
-                2500
-            );
+                return;
+
+            }
 
         }
     );
