@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,15 +12,26 @@
 
     <meta
         name="theme-color"
-        content="#16071f"
+        content="#09030d"
     >
 
-    <title>Masuk Clan — ANM Clan</title>
+    <meta
+        name="description"
+        content="Formulir pendaftaran A.N.M Clan. Isi data dengan benar untuk bergabung bersama kami."
+    >
+
+    <title>Masuk — Ame No Mitori Clan</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link
         rel="stylesheet"
         href="styleM.css"
     >
+
 </head>
 
 <body>
@@ -33,6 +45,7 @@
     <div class="background-glow glow-three"></div>
 
 
+
     <!-- =====================================================
          NAVBAR
     ====================================================== -->
@@ -42,14 +55,15 @@
         <a
             href="index.html"
             class="brand"
+            aria-label="Kembali ke beranda"
         >
 
-            <div class="brand-logo">
-           ←     
+            <div class="brand-icon">
+                ←
             </div>
-            
+
             <div class="brand-text">
-                <strong>ANM</strong>
+                <strong>Ame No Mitori</strong>
                 <span>CLAN</span>
             </div>
 
@@ -62,11 +76,9 @@
             aria-label="Buka menu"
             aria-expanded="false"
         >
-
             <span></span>
             <span></span>
             <span></span>
-
         </button>
 
 
@@ -76,28 +88,35 @@
         >
 
             <a href="index.html">
-                Home
+                <span>01</span>
+                HOME
             </a>
 
             <a href="anggota.html">
-                Anggota
+                <span>02</span>
+                ANGGOTA
             </a>
 
             <a
                 href="masuk.html"
                 class="active"
             >
-                Masuk Clan
+                <span>03</span>
+                MASUK CLAN
             </a>
 
-            <div class="menu-line"></div>
+            <div class="menu-divider"></div>
 
+            <!-- GANTI LINK TIKTOK DI SINI -->
             <a
                 href="https://www.tiktok.com/@izumo.clan.official"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="social-link"
             >
-                TikTok
+                <span>TT</span>
+                TIKTOK
+                <b>↗</b>
             </a>
 
         </nav>
@@ -117,10 +136,10 @@
              HERO
         ================================================== -->
 
-        <section class="hero">
+        <section class="hero reveal">
 
             <div class="hero-tag">
-                — JOIN ANM CLAN —
+                — JOIN A.N.M CLAN —
             </div>
 
             <h1>
@@ -142,11 +161,12 @@
              FORM
         ================================================== -->
 
-        <section class="form-section">
+        <section class="form-section reveal">
 
             <form
                 id="joinForm"
                 class="join-card"
+                novalidate
             >
 
 
@@ -157,7 +177,6 @@
                 <div class="card-header">
 
                     <div>
-
                         <span class="small-label">
                             A.N.M CLAN
                         </span>
@@ -165,7 +184,6 @@
                         <h2>
                             Pendaftaran
                         </h2>
-
                     </div>
 
                     <div class="card-number">
@@ -187,15 +205,8 @@
                     </span>
 
                     <div>
-
-                        <small>
-                            SECTION
-                        </small>
-
-                        <h3>
-                            Identitas
-                        </h3>
-
+                        <small>SECTION</small>
+                        <h3>Identitas</h3>
                     </div>
 
                 </div>
@@ -254,15 +265,8 @@
                     </span>
 
                     <div>
-
-                        <small>
-                            SECTION
-                        </small>
-
-                        <h3>
-                            Kemampuan
-                        </h3>
-
+                        <small>SECTION</small>
+                        <h3>Kemampuan</h3>
                     </div>
 
                 </div>
@@ -274,9 +278,7 @@
                         Level Editing
                     </label>
 
-
                     <div class="level-grid">
-
 
                         <label class="level-option">
 
@@ -287,15 +289,8 @@
                             >
 
                             <span>
-
-                                <b>
-                                    Dasar
-                                </b>
-
-                                <small>
-                                    Pemula
-                                </small>
-
+                                <b>Dasar</b>
+                                <small>Pemula</small>
                             </span>
 
                         </label>
@@ -311,15 +306,8 @@
                             >
 
                             <span>
-
-                                <b>
-                                    Menengah
-                                </b>
-
-                                <small>
-                                    Berkembang
-                                </small>
-
+                                <b>Menengah</b>
+                                <small>Berkembang</small>
                             </span>
 
                         </label>
@@ -335,19 +323,11 @@
                             >
 
                             <span>
-
-                                <b>
-                                    Pro
-                                </b>
-
-                                <small>
-                                    Berpengalaman
-                                </small>
-
+                                <b>Pro</b>
+                                <small>Berpengalaman</small>
                             </span>
 
                         </label>
-
 
                     </div>
 
@@ -383,15 +363,8 @@
                     </span>
 
                     <div>
-
-                        <small>
-                            INFORMATION
-                        </small>
-
-                        <h3>
-                            Catatan
-                        </h3>
-
+                        <small>INFORMATION</small>
+                        <h3>Catatan</h3>
                     </div>
 
                 </div>
@@ -399,15 +372,11 @@
 
                 <div class="info-box">
 
-                    <div class="info-icon">
-                        ✦
-                    </div>
+                    <div class="info-icon">✦</div>
 
                     <div class="info-content">
 
-                        <h4>
-                            Sebelum mengirim
-                        </h4>
+                        <h4>Sebelum mengirim</h4>
 
                         <p>
                             Pastikan seluruh data yang
@@ -427,11 +396,13 @@
                             Dengan mengirim pendaftaran,
                             kamu menyatakan bersedia
                             mengikuti aturan yang berlaku
-                            di ANM Clan.
+                            di A.N.M Clan.
                         </p>
-                        
+
                         <p>
-                           Silakan paste format yang kamu masukan di formulir. setelah memencet tombol daftar.
+                            Silakan paste format yang kamu
+                            masukkan di formulir, setelah
+                            menekan tombol <b>KIRIM</b>.
                         </p>
 
                     </div>
@@ -457,12 +428,10 @@
                         <span class="custom-checkbox"></span>
 
                         <span class="agreement-text">
-
                             Saya menyatakan bahwa data
                             yang saya berikan benar dan
                             bersedia mengikuti aturan yang
-                            berlaku di ANM Clan.
-
+                            berlaku di A.N.M Clan.
                         </span>
 
                     </label>
@@ -480,24 +449,15 @@
                     class="submit-button"
                     id="submitButton"
                 >
-
-                    <span>
-                        KIRIM PENDAFTARAN
-                    </span>
-
-                    <b>
-                        →
-                    </b>
-
+                    <span>KIRIM PENDAFTARAN</span>
+                    <b>→</b>
                 </button>
 
 
                 <p class="submit-note">
-
                     WhatsApp akan terbuka otomatis
                     dengan pesan pendaftaran yang
                     sudah disiapkan.
-
                 </p>
 
 
@@ -511,11 +471,9 @@
              BOTTOM
         ================================================== -->
 
-        <section class="bottom-info">
+        <section class="bottom-info reveal">
 
-            <span>
-                ANM CLAN
-            </span>
+            <span>A.N.M CLAN</span>
 
             <h2>
                 One clan.
@@ -534,16 +492,32 @@
 
 
     <!-- =====================================================
-         BACK TO TOP
+         FOOTER
     ====================================================== -->
 
-    <button
-        class="back-top"
-        id="backTop"
-        aria-label="Kembali ke atas"
-    >
-        ↑
-    </button>
+    <footer>
+
+        <div class="footer-brand">
+            <div class="brand-icon">ANM</div>
+
+            <div>
+                <strong>A.N.M CLAN</strong>
+                <span>OFFICIAL WEBSITE</span>
+            </div>
+        </div>
+
+        <p>© 2026 A.N.M Clan</p>
+
+        <button
+            class="back-top"
+            id="backTop"
+            aria-label="Kembali ke atas"
+        >
+            ↑
+        </button>
+
+    </footer>
+
 
 
     <script src="scriptM.js"></script>
