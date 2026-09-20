@@ -1,7 +1,17 @@
 /* =========================================================
-   IZUMO CLAN
+   A.N.M CLAN
    ANGGOTA SCRIPT
 ========================================================= */
+
+
+/* =========================================================
+   JS READY FLAG
+========================================================= */
+
+document.body.classList.add(
+    "js-ready"
+);
+
 
 
 /* =========================================================
@@ -162,6 +172,7 @@ if (
 
 /* =========================================================
    SCROLL REVEAL
+   - CSS v3 pakai class .active
 ========================================================= */
 
 const revealElements =
@@ -194,7 +205,7 @@ if (
 
 
                             entry.target.classList.add(
-                                "visible"
+                                "active"
                             );
 
 
@@ -238,7 +249,7 @@ if (
         function (element) {
 
             element.classList.add(
-                "visible"
+                "active"
             );
 
         }
@@ -302,12 +313,12 @@ document
 
 
                     this.style.background =
-                        "#24102d";
+                        "#1a0828";
 
 
                     this.setAttribute(
                         "alt",
-                        "IZUMO"
+                        "ANM"
                     );
 
 
@@ -369,7 +380,7 @@ document
 
 
                     const offset =
-                        75;
+                        85;
 
 
                     const position =
