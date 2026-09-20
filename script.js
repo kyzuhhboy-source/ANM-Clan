@@ -1,7 +1,17 @@
 /* =========================================================
-   IZUMO CLAN
+   A.N.M CLAN
    INDEX SCRIPT
 ========================================================= */
+
+
+/* =========================================================
+   JS READY FLAG
+========================================================= */
+
+document.body.classList.add(
+    "js-ready"
+);
+
 
 
 /* =========================================================
@@ -154,6 +164,7 @@ if (
 
 /* =========================================================
    SCROLL REVEAL
+   - CSS v3 pakai class .active
 ========================================================= */
 
 const revealElements =
@@ -186,7 +197,7 @@ if (
 
 
                             entry.target.classList.add(
-                                "visible"
+                                "active"
                             );
 
 
@@ -229,7 +240,7 @@ if (
         function (element) {
 
             element.classList.add(
-                "visible"
+                "active"
             );
 
         }
@@ -323,6 +334,7 @@ document
 
 /* =========================================================
    BACK TO TOP
+   - CSS v3 pakai class .visible
 ========================================================= */
 
 if (backTop) {
@@ -347,6 +359,41 @@ if (backTop) {
         }
     );
 
+
+    function updateBackTop() {
+
+
+        if (
+            window.scrollY > 400
+        ) {
+
+            backTop.classList.add(
+                "visible"
+            );
+
+        } else {
+
+            backTop.classList.remove(
+                "visible"
+            );
+
+        }
+
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackTop,
+        {
+            passive:
+                true
+        }
+    );
+
+
+    updateBackTop();
 
 }
 
@@ -451,56 +498,6 @@ if (
 
 
 /* =========================================================
-   BACK TO TOP VISIBILITY
-========================================================= */
-
-if (backTop) {
-
-
-    function updateBackTop() {
-
-
-        if (
-            window.scrollY > 400
-        ) {
-
-            backTop.style.opacity =
-                "1";
-
-            backTop.style.pointerEvents =
-                "auto";
-
-
-        } else {
-
-            backTop.style.opacity =
-                ".5";
-
-            backTop.style.pointerEvents =
-                "auto";
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateBackTop,
-        {
-            passive:
-                true
-        }
-    );
-
-
-    updateBackTop();
-
-}
-
-
-
-/* =========================================================
    PROFILE IMAGE ERROR FALLBACK
 ========================================================= */
 
@@ -532,7 +529,7 @@ if (profileImage) {
 
 
             parent.innerHTML +=
-                `<span class="fallback-profile">IZ</span>`;
+                `<span class="fallback-profile">ANM</span>`;
 
 
         }
