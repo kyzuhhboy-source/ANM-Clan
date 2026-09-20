@@ -1,6 +1,16 @@
 /* =========================================================
-   IZUMO CLAN — MASUK SCRIPT
+   A.N.M CLAN — MASUK SCRIPT
 ========================================================= */
+
+
+/* =========================================================
+   JS READY FLAG
+========================================================= */
+
+document.body.classList.add(
+    "js-ready"
+);
+
 
 
 /* =========================================================
@@ -21,6 +31,7 @@ const submitButton =
 
 const backTop =
     document.getElementById("backTop");
+
 
 
 /* =========================================================
@@ -124,6 +135,7 @@ if (menuButton && navMenu) {
 }
 
 
+
 /* =========================================================
    BUILD PENDAFTARAN
 ========================================================= */
@@ -160,35 +172,36 @@ function buildWhatsAppMessage() {
             : "-";
 
 
-    return `*PENDAFTARAN ANM CLAN*
+    return `╭━━━━━━━━━━━━━━━━━━━━╮
+ ✦ *PENDAFTARAN A.N.M CLAN* ✦
+╰━━━━━━━━━━━━━━━━━━━━╯
 
-━━━━━━━━━━━━━━━━━━
+ *IDENTITAS*
 
-*IDENTITAS*
+   *Nama*
+     ${nama}
 
-Nama:
-${nama}
+   *Nomor WhatsApp*
+     ${nomor}
 
-Nomor WhatsApp:
-${nomor}
+ *KEMAMPUAN*
 
-━━━━━━━━━━━━━━━━━━
+   *Level Editing*
+     ${level}
 
-*KEMAMPUAN*
+   *APK / Software*
+     ${apk}
 
-Level Editing:
-${level}
+╭━━━━━━━━━━━━━━━━━━╮
+   *PERNYATAAN*
+╰━━━━━━━━━━━━━━━━━━╯
 
-APK / Software:
-${apk}
+Saya menyatakan bahwa data yang saya berikan *benar* dan bersedia mengikuti aturan *A.N.M Clan*.
 
-━━━━━━━━━━━━━━━━━━
-
-Saya menyatakan bahwa data yang saya berikan benar dan bersedia mengikuti aturan A.N.M Clan.
-
-Terima kasih.`;
+_Terima kasih._ `;
 
 }
+
 
 
 /* =========================================================
@@ -483,6 +496,7 @@ if (joinForm) {
 }
 
 
+
 /* =========================================================
    PHONE INPUT
 ========================================================= */
@@ -509,8 +523,10 @@ if (phoneInput) {
 }
 
 
+
 /* =========================================================
    BACK TO TOP
+   - CSS v3 pakai class .visible
 ========================================================= */
 
 if (backTop) {
@@ -524,13 +540,13 @@ if (backTop) {
             ) {
 
                 backTop.classList.add(
-                    "show"
+                    "visible"
                 );
 
             } else {
 
                 backTop.classList.remove(
-                    "show"
+                    "visible"
                 );
 
             }
@@ -560,6 +576,7 @@ if (backTop) {
 }
 
 
+
 /* =========================================================
    PREVENT ENTER SUBMIT
    EXCEPT TEXTAREA
@@ -585,3 +602,97 @@ if (joinForm) {
     );
 
 }
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+   - Sesuai CSS v3 pakai class .active
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+if (
+    "IntersectionObserver"
+    in window
+) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            function (
+                entries,
+                observer
+            ) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.1,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+
+    revealElements.forEach(
+        function (element) {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+} else {
+
+    revealElements.forEach(
+        function (element) {
+
+            element.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   PAGE LOADED
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function () {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
+
+    }
+);
